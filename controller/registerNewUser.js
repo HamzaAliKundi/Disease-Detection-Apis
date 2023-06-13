@@ -8,11 +8,11 @@ const registerNewUser = asyncHandler(async (req, res) => {
     req.body;
 
   //  **Checking if user already register with the same email or not
-  const userExists = await RegisterUser.findOne({ email });
+  const userExists = await RegisterUser.findOne({ userName });
 
   if (userExists) {
     res.status(400);
-    throw new Error("User alredy register with thie Email address");
+    throw new Error("Username exists try another one");
   }
 
   //  **Encrypting password
