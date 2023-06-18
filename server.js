@@ -15,5 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 // **Auth Route
 app.use("/api/account", require("./routes/accountRoute"));
 
+// **Detect Route
+app.use("/api/disease", require("./routes/detectDisease"));
+
 app.use(errorHandler);
 app.listen(port, () => console.log(`Server started at ${port}`));
