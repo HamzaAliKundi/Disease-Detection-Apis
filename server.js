@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
-const port = 8000;
+const port = process.env.PORT || 8000;
 const connectDB = require("./config/db");
 const cors = require("cors");
 const { errorHandler } = require("./middleware/errorHandler");
@@ -15,8 +15,5 @@ app.use(express.urlencoded({ extended: false }));
 // **Auth Route
 app.use("/api/account", require("./routes/accountRoute"));
 
-// **Detect Route
-app.use("/api/disease", require("./routes/detectDisease"));
-
 app.use(errorHandler);
-app.listen(port, () => console.log(`Server started at ${port}`));
+app.listen(port, () => console.log(`Server started at : ${port}`));

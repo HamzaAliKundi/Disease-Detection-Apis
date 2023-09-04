@@ -2,9 +2,8 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
 
 const connectDB = async () => {
-   localUrl = "mongodb://localhost:27017/heart-disease-detection";
    try {
-      const conn = await mongoose.connect(localUrl);
+      const conn = await mongoose.connect(process.env.MONGO_URI);
       console.log(`mongoDB connected : ${conn.connection.host}`);
    } catch (error) {
       console.log("Connected error : ", error);
